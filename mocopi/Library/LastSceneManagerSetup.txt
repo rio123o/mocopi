@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/MocopiReceiver/Runtime/Core/SonyMotionFormat/Samples/ReceiverSample/Scenes/ReceiverSample.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
