@@ -107,6 +107,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5719170511710439615}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6120513768437605064}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5692962048114797841}
   m_SourcePrefab: {fileID: 100100000, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
 --- !u!1 &9039482586298602922 stripped
 GameObject:
@@ -136,3 +142,28 @@ CapsuleCollider:
   m_Height: 157.6
   m_Direction: 0
   m_Center: {x: 0, y: 41.1, z: 0}
+--- !u!114 &6120513768437605064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039482586298602922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9faa603e2d2147499fc9980d42cebe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 1
+--- !u!114 &5692962048114797841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039482586298602922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368341367f72ede469cab4b3270f182d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
