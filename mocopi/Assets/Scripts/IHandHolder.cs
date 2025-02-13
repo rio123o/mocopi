@@ -15,4 +15,7 @@ public interface IHandHolder
 
     //  現在手元に保持しているオブジェクトを解放する処理を行うメソッド
     void DetachItem();
+
+    //  現在手元に保持しているアイテムを、指定のターゲット位置へ投げる処理を行う
+    void ThrowItem(Transform target);
 }
