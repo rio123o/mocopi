@@ -1,31 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHand : MonoBehaviour, IHandHolder
 {
-    // 手元として利用する Transform を Inspector で設定
     [SerializeField] private Transform handTransform;
     public Transform HandTransform => handTransform;
 
-    // 現在手元に保持しているアイテム（外部からは取得のみ可能）
     public GameObject HeldItem { get; private set; } = null;
 
-    /// <summary>
-    /// 指定されたアイテムを手元にアタッチする
-    /// </summary>
     public void AttachItem(GameObject item)
     {
         if (item == null) return;
 
         HeldItem = item;
-        // アイテムを手元（handTransform）の子として設定
         item.transform.SetParent(handTransform);
-        // 手元の位置と回転に合わせる
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.identity;
 
-        // 物理挙動を一時停止する（手元に保持中は物理シミュレーション不要）
         Rigidbody rb = item.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -33,16 +23,11 @@ public class PlayerHand : MonoBehaviour, IHandHolder
         }
     }
 
-    /// <summary>
-    /// 現在保持しているアイテムを手放す（デタッチする）
-    /// </summary>
     public void DetachItem()
     {
         if (HeldItem == null) return;
 
-        // 親子関係を解除して、手放す
         HeldItem.transform.SetParent(null);
-        // 物理挙動を再開する
         Rigidbody rb = HeldItem.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -53,19 +38,19 @@ public class PlayerHand : MonoBehaviour, IHandHolder
     }
 
     /// <summary>
-    /// 現在保持しているアイテムを指定されたターゲット位置へ投げる
+    /// 現在保持しているアイテムを、指定のターゲット位置に投げる処理。
+    /// throwForce の値に応じて、到達するための発射角度を計算します。
     /// </summary>
-    /// <param name="target">投げ先の Transform</param>
-    public void ThrowItem(Transform target)
+    /// <param name="target">投げ先のターゲット Transform</param>
+    /// <param name="force">投げる力（初速）</param>
+    public void ThrowItem(Transform target, float force)
     {
         if (HeldItem == null || target == null) return;
 
-        // 投げるアイテムを取得して、手元から解除する
         GameObject itemToThrow = HeldItem;
         HeldItem = null;
         itemToThrow.transform.SetParent(null);
 
-        // Rigidbody を取得。存在しない場合は追加する。
         Rigidbody rb = itemToThrow.GetComponent<Rigidbody>();
         if (rb == null)
         {
@@ -73,15 +58,31 @@ public class PlayerHand : MonoBehaviour, IHandHolder
         }
         rb.isKinematic = false;
 
-        // 投げる方向を計算（手元からターゲットへの方向）
-        Vector3 throwDirection = (target.position - handTransform.position).normalized;
-        // 例えば、若干上方向へ持ち上げるために、上方向の補正を追加
-        throwDirection += Vector3.up * 0.3f;
-        throwDirection.Normalize();
+        // 現在の手元位置からターゲットまでの変位を求める
+        Vector3 displacement = target.position - handTransform.position;
+        // 水平成分のみ（Y成分を除く）
+        Vector3 horizontalDisplacement = new Vector3(displacement.x, 0, displacement.z);
+        float d = horizontalDisplacement.magnitude;  // 水平距離
+        float h = displacement.y;                      // 高さの差
+        float v = force;                               // 初速としての throwForce
+        float g = -Physics.gravity.y;                  // 重力加速度（正の値）
 
-        // 投げる力を設定（必要に応じて調整）
-        float throwForce = 25f;
-        // Rigidbody にインパルスとして力を加える
-        rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
+        // 判別式を計算：v^4 - g*(g*d^2 + 2*h*v^2)
+        float disc = v * v * v * v - g * (g * d * d + 2 * h * v * v);
+        if (disc < 0)
+        {
+            // 投げる力が足りずターゲットに到達できない場合は、通常の方向に力を加える
+            Debug.LogWarning("指定の力ではターゲットに到達できません。");
+            rb.AddForce((target.position - handTransform.position).normalized * v, ForceMode.Impulse);
+            return;
+        }
+
+        float sqrtDisc = Mathf.Sqrt(disc);
+        // 低軌道の解を選ぶ（v^2 - sqrtDisc）
+        float angle = Mathf.Atan((v * v - sqrtDisc) / (g * d));
+
+        // 初速ベクトルを計算：水平成分と垂直成分に分ける
+        Vector3 initialVelocity = horizontalDisplacement.normalized * (v * Mathf.Cos(angle)) + Vector3.up * (v * Mathf.Sin(angle));
+        rb.AddForce(initialVelocity, ForceMode.Impulse);
     }
 }
