@@ -18,11 +18,14 @@ public class PullOutDonutOrVegetable : MonoBehaviour
     [Header("プレイヤーの手元保持コンポーネント（IHandHolder を実装したコンポーネントをアサイン）")]
     [SerializeField] private MonoBehaviour domyHandHolder;
 
+    [Header("投げる設定")]
+    [Tooltip("投げる力（インパルスの大きさ）")]
+    [SerializeField] private float throwForce = 10f;
+
     private IHandHolder currentHandHolder;
 
     private void Awake()
     {
-        // Inspector で domyHandHolder がアサインされていれば、そのコンポーネントを IHandHolder として設定
         if (domyHandHolder != null)
         {
             currentHandHolder = domyHandHolder as IHandHolder;
@@ -34,11 +37,8 @@ public class PullOutDonutOrVegetable : MonoBehaviour
         }
         else
         {
-            if (currentHandHolder == null)
-            {
-                currentHandHolder = new NullHandHolder();
-                Debug.LogWarning("有効な IHandHolder が見つかりませんでした。NullHandHolder を使用します。");
-            }
+            currentHandHolder = new NullHandHolder();
+            Debug.LogWarning("有効な IHandHolder が見つかりませんでした。NullHandHolder を使用します。");
         }
     }
 
@@ -66,19 +66,19 @@ public class PullOutDonutOrVegetable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J) && throwTargetJ != null)
             {
-                currentHandHolder.ThrowItem(throwTargetJ);
+                currentHandHolder.ThrowItem(throwTargetJ, throwForce);
             }
             else if (Input.GetKeyDown(KeyCode.K) && throwTargetK != null)
             {
-                currentHandHolder.ThrowItem(throwTargetK);
+                currentHandHolder.ThrowItem(throwTargetK, throwForce);
             }
             else if (Input.GetKeyDown(KeyCode.L) && throwTargetL != null)
             {
-                currentHandHolder.ThrowItem(throwTargetL);
+                currentHandHolder.ThrowItem(throwTargetL, throwForce);
             }
         }
 
-        // ③ I キーで単純に手放す（ThrowItem を使わない手放し処理）
+        // ③ I キーで手放す（投げる処理とは別に単純にデタッチ）
         if (Input.GetKeyDown(KeyCode.I) && currentHandHolder.HeldItem != null)
         {
             currentHandHolder.DetachItem();
@@ -96,7 +96,6 @@ public class PullOutDonutOrVegetable : MonoBehaviour
             return null;
         }
 
-        // spawnPoint が設定されていればその位置、なければ currentHandHolder の HandTransform の位置を利用
         Vector3 position = (spawnPoint != null) ? spawnPoint.position : currentHandHolder.HandTransform.position;
         Quaternion rotation = (spawnPoint != null) ? spawnPoint.rotation : currentHandHolder.HandTransform.rotation;
         return Instantiate(prefab, position, rotation);

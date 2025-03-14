@@ -16,5 +16,5 @@ public class NullHandHolder : IHandHolder
     // ‰½‚à‚µ‚È‚¢ŽÀ‘•
     public void DetachItem() { }
 
-    public void ThrowItem(Transform target) { }
+    public void ThrowItem(Transform target, float force) { }
 }
