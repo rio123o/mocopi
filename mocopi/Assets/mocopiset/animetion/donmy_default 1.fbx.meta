@@ -179,8 +179,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: hand_R
-      humanName: RightHand
+    - boneName: uparm_R
+      humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -195,8 +195,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: uparm_R
-      humanName: RightUpperArm
+    - boneName: hand_R
+      humanName: RightHand
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -266,8 +266,8 @@ ModelImporter:
       scale: {x: 0.11004847, y: 0.06709879, z: 0.11004847}
     - name: hip
       parentName: donmy_default 1(Clone)
-      position: {x: 0, y: 0.751122, z: -0.030316472}
-      rotation: {x: -0.70478404, y: -0.7047839, z: -0.057267256, w: 0.057268366}
+      position: {x: 0, y: 0.751122, z: -1.7320422}
+      rotation: {x: -0.05726781, y: 0.05726781, z: 0.704784, w: 0.704784}
       scale: {x: 1, y: 1, z: 1}
     - name: spine1
       parentName: hip
@@ -517,7 +517,7 @@ ModelImporter:
     - name: uparm_L
       parentName: clavicle_L
       position: {x: 0.35621214, y: -0.017258156, z: -0.172495}
-      rotation: {x: 0.030823164, y: 0.2459921, z: 0.11258472, w: 0.9622175}
+      rotation: {x: -0.01539661, y: 0.21156931, z: -0.05657111, w: 0.9756029}
       scale: {x: 1, y: 1, z: 1}
     - name: lowarm_L
       parentName: uparm_L
@@ -537,7 +537,7 @@ ModelImporter:
     - name: uparm_R
       parentName: clavicle_R
       position: {x: -0.35621154, y: 0.017263228, z: 0.1724952}
-      rotation: {x: 0.030823592, y: 0.24599937, z: 0.112583995, w: 0.9622157}
+      rotation: {x: -0.01539661, y: 0.21156931, z: -0.05657111, w: 0.9756029}
       scale: {x: 1, y: 1, z: 1}
     - name: lowarm_R
       parentName: uparm_R
