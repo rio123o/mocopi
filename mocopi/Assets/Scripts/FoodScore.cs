@@ -39,12 +39,6 @@ public class FoodScore : MonoBehaviour
                 break;
         }
 
-        FindObjectOfType<FoodScoreUI>()?.UpdateScoreText();
-
         Debug.Log($"[ScoreManager] Donut={donutCount}, Vegetable={vegetableCount}");
     }
-
-    public int GetDonutCount() => donutCount;
-    public int GetVegetableCount() => vegetableCount;
-
 }
