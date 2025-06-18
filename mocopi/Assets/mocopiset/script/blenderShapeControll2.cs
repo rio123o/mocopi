@@ -19,7 +19,7 @@ public class blenderShapeControll2 : MonoBehaviour
         m_weight = 0;
         //head = GameObject.Find("donmy_slice/head_object");
         skinnedMeshRenderer = head.GetComponent<SkinnedMeshRenderer>();
-        m_Index = skinnedMeshRenderer.sharedMesh.GetBlendShapeIndex("blendShape1.cry");
+        m_Index = skinnedMeshRenderer.sharedMesh.GetBlendShapeIndex("blendShape1.cry2Shape");
 
     }
 

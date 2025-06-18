@@ -10,7 +10,7 @@ public class AutoBlink : MonoBehaviour
     public SkinnedMeshRenderer face_SkinnedMeshRenderer;
 
     //とじ目の要素数
-    public int eyeClose_KeyNumber;
+    public int eyeClose_KeyNumber = 5;
 
     //SetBlendShapeWeightに使用する数値
     //0でまぶたが完全に開く、100でまぶたが完全に閉じる
