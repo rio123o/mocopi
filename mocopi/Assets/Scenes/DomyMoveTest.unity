@@ -172,31 +172,6 @@ MonoBehaviour:
     index: 0
     weight: 0
     duttonTriggered: 0
-  - shapeName: blendShape1.aShape
-    key: 106
-    index: 0
-    weight: 0
-    duttonTriggered: 0
-  - shapeName: blendShape1.iShape
-    key: 107
-    index: 0
-    weight: 0
-    duttonTriggered: 0
-  - shapeName: blendShape1.uShape
-    key: 108
-    index: 0
-    weight: 0
-    duttonTriggered: 0
-  - shapeName: blendShape1.eShape
-    key: 113
-    index: 0
-    weight: 0
-    duttonTriggered: 0
-  - shapeName: blendShape1.oShape
-    key: 119
-    index: 0
-    weight: 0
-    duttonTriggered: 0
 --- !u!1 &378976687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7231660569348609605, guid: 0f90385323c223f4098e3d1f3d99f102, type: 3}
