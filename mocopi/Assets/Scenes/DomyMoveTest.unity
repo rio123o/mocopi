@@ -446,7 +446,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &429314514 stripped
 GameObject:
@@ -552,90 +552,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &784241512
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_Name
-      value: donmy_default 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-    - target: {fileID: 5866666021909216657, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 677c889febc75f245b342e6e295a52da, type: 2}
-    - target: {fileID: 5866666021909216657, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'hand_L'\n\tTransform 'lowleg_R'\n\tTransform
-        'spine2'\n\tTransform 'foot_L'\n\tTransform 'clavicle_R'\n\tTransform 'uparm_R'\n\tTransform
-        'hip'\n\tTransform 'upleg_R'\n\tTransform 'head'\n\tTransform 'lowarm_L'\n\tand
-        more ...\n\tFrom animation clip 'Take 001'\n\tFrom animation clip 'Take 001'\n\tFrom
-        animation clip 'Take 001'\n\tFrom animation clip 'Take 001'\n\tFrom animation
-        clip 'Take 001'\n\tFrom animation clip 'donmy_ear_up_straight'"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
 --- !u!1 &913556280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8697478584312672820, guid: 0f90385323c223f4098e3d1f3d99f102, type: 3}
@@ -663,44 +579,6 @@ ParentConstraint:
   m_IsContraintActive: 0
   m_IsLocked: 0
   m_Sources: []
---- !u!1 &1402519279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-  m_PrefabInstance: {fileID: 784241512}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1402519280 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 566e666ef9d0cd243b822dc201848e64, type: 3}
-  m_PrefabInstance: {fileID: 784241512}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1402519282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402519279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2161855ec5bf458498ac65f588469d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1402519280}
---- !u!114 &1402519283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402519279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238345459e3cc47b99543f30eaacf14a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MotionSmoothness: 0
-  IsBufferingEnabled: 1
-  DelayRecoveryRate: 0.001
 --- !u!1001 &1449673349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,7 +588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0f90385323c223f4098e3d1f3d99f102, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f90385323c223f4098e3d1f3d99f102, type: 3}
       propertyPath: m_LocalScale.x
@@ -852,7 +730,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
       propertyPath: m_LocalScale.x
@@ -1026,7 +904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
       propertyPath: m_LocalScale.x
@@ -1189,7 +1067,7 @@ PrefabInstance:
     - target: {fileID: 1751811721084492776, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
       propertyPath: AvatarSettings.Array.data[1].MocopiAvatar
       value: 
-      objectReference: {fileID: 1402519283}
+      objectReference: {fileID: 0}
     - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
       propertyPath: m_RootOrder
       value: 3
