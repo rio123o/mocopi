@@ -14,7 +14,7 @@ public class BoxPlayerMove : MonoBehaviour
     [SerializeField] private float maxX = 5f;
 
 
-    // 自動生成されたInput Actionクラスのインスタンス
+    //  自動生成されたInput Actionクラスのインスタンス
     private PlayerInputSystem movementAction;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class BoxPlayerMove : MonoBehaviour
 
     private void OnEnable()
     {
-        // 必要なアクションマップを有効化
+        //  必要なアクションマップを有効化
         movementAction.PlayerBoxMove.Enable();
     }
 
@@ -36,17 +36,16 @@ public class BoxPlayerMove : MonoBehaviour
 
     void Update()
     {
-        // 「Move」アクション（2D Vector）の入力値を取得し、X成分を利用
+        //  Moveアクションの入力値を取得し、X成分を利用
         Vector2 input = movementAction.PlayerBoxMove.Move.ReadValue<Vector2>();
         float horizontal = input.x;
 
-        // 入力に基づいて移動量を計算
+        //  入力に基づいて移動量を計算
         Vector3 movement = new Vector3(horizontal * moveSpeed * Time.deltaTime, 0f, 0f);
 
-        // 現在の位置に移動量を加算
+        //  現在の位置に移動量を加算
         transform.position += movement;
 
-        // X座標を minX～maxX の範囲内にClamp
         float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
         transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
