@@ -23,37 +23,31 @@ public class CharacterEarAnimator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            animator.SetTrigger("circle");
+            animator.SetTrigger("face");
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            animator.SetTrigger("cross");
+            animator.SetTrigger("donmy_ear_down");
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            animator.SetTrigger("donmy_ear_down");
+            animator.SetTrigger("donmy_ear_ha-to");
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            animator.SetTrigger("donmy_ear_down_straight");
+            animator.SetTrigger("donmy_ear_up1");
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.N))
         {
-            animator.SetTrigger("donmy_ear_up");
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            animator.SetTrigger("donmy_ear_up_straight");
+            animator.SetTrigger("donmy_ear_up2");
             return;
         }
     }
