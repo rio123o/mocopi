@@ -389,6 +389,8 @@ MonoBehaviour:
   mappings:
   - actionReference: {fileID: -2511303351014887420, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: Wait
+  - actionReference: {fileID: 505807591791628305, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
+    sceneName: End
 --- !u!4 &374706162
 Transform:
   m_ObjectHideFlags: 0
