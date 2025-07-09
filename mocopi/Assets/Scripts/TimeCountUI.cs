@@ -5,24 +5,42 @@ using TMPro;
 
 public class TimeCountUI : MonoBehaviour
 {
-    [Header("")]
+    [Header("制限時間")]
     [SerializeField] private float timeLimitSeconds = 60f;
 
-    [Header("")]
+    [Header("制限時間を表示するUI")]
     [SerializeField] private TextMeshProUGUI timeCount;
 
-    private float remainTime;
+    [Header("時間切れした後に非表示にするCanvas")]
+    [SerializeField] private GameObject currentCanvas;
+
+    [Header("時間切れした後に表示するCanvas")]
+    [SerializeField] private GameObject nextCanvas;
+
+    private float remainTime;  //  残り時間
     private bool isMeasuring;
 
     void Start()
     {
+        if(currentCanvas == null)
+        {
+            Debug.LogError("TimeCountUIスクリプトに、currentCanvasがアタッチされていません。", this);
+            enabled = false;  //  Updateなどの処理が止まる
+            return;
+        }
+        if(nextCanvas == null)
+        {
+            Debug.LogError("TimeCountUIスクリプトに、nextCanvasがアタッチされていません。", this);
+            enabled = false;  //  Updateなどの処理が止まる
+            return;
+        }
+
         isMeasuring = true;
         remainTime = timeLimitSeconds;
         UpdateTimerUI();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isMeasuring) return;
@@ -32,7 +50,7 @@ public class TimeCountUI : MonoBehaviour
         {
             remainTime = 0f;
             isMeasuring = false;
-
+            OnTimeUp();
         }
 
         UpdateTimerUI();
@@ -43,4 +61,17 @@ public class TimeCountUI : MonoBehaviour
         int seconds = Mathf.CeilToInt(remainTime);
         timeCount.text = $"{seconds}";
     }
+
+    ///  <summary>
+    ///  時間切れした時の処理
+    ///  currentCanvasを非表示にして、nextCanvasを表示する
+    ///  </summary>
+    private void OnTimeUp()
+    {
+        nextCanvas.SetActive(true);
+        currentCanvas.SetActive(false);
+        //  Updateを止める
+        enabled = false;
+    }
+
 }
