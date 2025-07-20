@@ -10,17 +10,27 @@ public class PullOutDonutOrVegetable : MonoBehaviour
     [Header("ドーナッツか野菜が現れる位置")]
     [SerializeField] private Transform spawnPoint;
 
-    [Header("投げ先のターゲット（Transform を指定）")]
+    [Header("投げ先のターゲット")]
     [SerializeField] private Transform throwTargetJ;
     [SerializeField] private Transform throwTargetK;
     [SerializeField] private Transform throwTargetL;
 
-    [Header("プレイヤーの手元保持コンポーネント（IHandHolder を実装したコンポーネントをアサイン）")]
+    [Header("プレイヤーの手元保持コンポーネント")]
     [SerializeField] private MonoBehaviour domyHandHolder;
 
     [Header("投げる設定")]
-    [Tooltip("投げる力（インパルスの大きさ）")]
+    [Tooltip("投げる力")]
     [SerializeField] private float throwForce = 10f;
+
+    [Header("投げる時の効果音")]
+    [SerializeField] private AudioClip throwClip;
+
+    [Header("音を鳴らすAudioSourse")]
+    [SerializeField] private AudioSource audioSource;
+
+    [Header("かごに入らない場合の消滅設定")]
+    [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private AudioClip disappearClip;
 
     private IHandHolder currentHandHolder;
 
@@ -40,6 +50,16 @@ public class PullOutDonutOrVegetable : MonoBehaviour
             currentHandHolder = new NullHandHolder();
             Debug.LogWarning("有効な IHandHolder が見つかりませんでした。NullHandHolder を使用します。");
         }
+
+        //  AudioSourceが設定されていなければ自動取得または作成する
+        if (audioSource == null)
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+            if (audioSource == null)
+                audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        //  ループしない
+        audioSource.loop = false;
     }
 
     private void Update()
@@ -66,16 +86,17 @@ public class PullOutDonutOrVegetable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J) && throwTargetJ != null)
             {
-                currentHandHolder.ThrowItem(throwTargetJ, throwForce);
+                ThrowWithAutoDestroy(throwTargetJ);
             }
             else if (Input.GetKeyDown(KeyCode.K) && throwTargetK != null)
             {
-                currentHandHolder.ThrowItem(throwTargetK, throwForce);
+                ThrowWithAutoDestroy(throwTargetK);
             }
             else if (Input.GetKeyDown(KeyCode.L) && throwTargetL != null)
             {
-                currentHandHolder.ThrowItem(throwTargetL, throwForce);
+                ThrowWithAutoDestroy(throwTargetL);
             }
+    
         }
 
         // ③ I キーで手放す（投げる処理とは別に単純にデタッチ）
@@ -99,5 +120,26 @@ public class PullOutDonutOrVegetable : MonoBehaviour
         Vector3 position = (spawnPoint != null) ? spawnPoint.position : currentHandHolder.HandTransform.position;
         Quaternion rotation = (spawnPoint != null) ? spawnPoint.rotation : currentHandHolder.HandTransform.rotation;
         return Instantiate(prefab, position, rotation);
+    }
+
+    //  投げる時の効果音の再生
+    private void PlayThrowSound()
+    {
+        if (throwClip != null && audioSource != null)
+            audioSource.PlayOneShot(throwClip);
+    }
+    ///  <summary>
+    ///  投げて、効果音を鳴らし、自動消滅コンポーネントを追加して、経過時間後に破棄する
+    ///  </summary>
+    private void ThrowWithAutoDestroy(Transform target)
+    {
+        GameObject thrown = currentHandHolder.HeldItem;
+        currentHandHolder.ThrowItem(target, throwForce);  //  投げる
+        PlayThrowSound();  //  投げる効果音
+
+        //  自動消滅のコンポーネントを追加して、設定を渡す
+        var disapperThrew = thrown.AddComponent<DisappearThrewAfter>();
+        disapperThrew.lifeTime = lifeTime;
+        disapperThrew.disappearClip = disappearClip;
     }
 }

@@ -17,6 +17,15 @@ public class TimeCountUI : MonoBehaviour
     [Header("時間切れした後に表示するCanvas")]
     [SerializeField] private GameObject nextCanvas;
 
+    [Header("開始時に鳴らす音")]
+    [SerializeField] private AudioClip startClip;
+
+    [Header("時間切れ時に鳴らす音")]
+    [SerializeField] private AudioClip endClip;
+
+    [Header("効果音再生用のAudioSource")]
+    [SerializeField] private AudioSource audioSource;
+
     private float remainTime;  //  残り時間
     private bool isMeasuring;
 
@@ -34,10 +43,22 @@ public class TimeCountUI : MonoBehaviour
             enabled = false;  //  Updateなどの処理が止まる
             return;
         }
+        if (audioSource == null)
+        {
+            Debug.LogError("TimeCountUIスクリプトに、audioSourceがアタッチされていません。。", this);
+            enabled = false;
+            return;
+        }
 
         isMeasuring = true;
         remainTime = timeLimitSeconds;
         UpdateTimerUI();
+
+        //  開始時のサウンド再生
+        if (startClip != null)
+        {
+            audioSource.PlayOneShot(startClip);
+        }
 
     }
 
@@ -68,6 +89,12 @@ public class TimeCountUI : MonoBehaviour
     ///  </summary>
     private void OnTimeUp()
     {
+        // 終了時のサウンド再生
+        if (endClip != null)
+        {
+            audioSource.PlayOneShot(endClip);
+        }
+
         nextCanvas.SetActive(true);
         currentCanvas.SetActive(false);
         //  Updateを止める

@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
@@ -101,18 +100,6 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5719170511710439615}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6120513768437605064}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5692962048114797841}
   m_SourcePrefab: {fileID: 100100000, guid: c9f8532b6437dad4fa9b8251da9d1023, type: 3}
 --- !u!1 &9039482586298602922 stripped
 GameObject:
@@ -127,21 +114,25 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9039482586298602922}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 55.58
   m_Height: 157.6
   m_Direction: 0
   m_Center: {x: 0, y: 41.1, z: 0}
+--- !u!114 &5692962048114797841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039482586298602922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368341367f72ede469cab4b3270f182d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyClip: {fileID: 8300000, guid: 41c01e1dbced0fd4bb2e94fd5eafcd2a, type: 3}
 --- !u!114 &6120513768437605064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,15 +146,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodType: 1
---- !u!114 &5692962048114797841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9039482586298602922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368341367f72ede469cab4b3270f182d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
