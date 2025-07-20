@@ -80,6 +80,15 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoEnd"",
+                    ""type"": ""Button"",
+                    ""id"": ""22bfa2c1-d531-4ff1-bc04-1ad68064adbb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -159,6 +168,17 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
                     ""action"": ""Next"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84ae0a81-831f-4475-949a-77637e3440e6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoEnd"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +193,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         m_UI_BackG = m_UI.FindAction("BackG", throwIfNotFound: true);
         m_UI_Return = m_UI.FindAction("Return", throwIfNotFound: true);
         m_UI_Next = m_UI.FindAction("Next", throwIfNotFound: true);
+        m_UI_GoEnd = m_UI.FindAction("GoEnd", throwIfNotFound: true);
     }
 
     ~@SceneTransitionInputSystem()
@@ -245,6 +266,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
     private readonly InputAction m_UI_BackG;
     private readonly InputAction m_UI_Return;
     private readonly InputAction m_UI_Next;
+    private readonly InputAction m_UI_GoEnd;
     public struct UIActions
     {
         private @SceneTransitionInputSystem m_Wrapper;
@@ -255,6 +277,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         public InputAction @BackG => m_Wrapper.m_UI_BackG;
         public InputAction @Return => m_Wrapper.m_UI_Return;
         public InputAction @Next => m_Wrapper.m_UI_Next;
+        public InputAction @GoEnd => m_Wrapper.m_UI_GoEnd;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +305,9 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
+            @GoEnd.started += instance.OnGoEnd;
+            @GoEnd.performed += instance.OnGoEnd;
+            @GoEnd.canceled += instance.OnGoEnd;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -304,6 +330,9 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
+            @GoEnd.started -= instance.OnGoEnd;
+            @GoEnd.performed -= instance.OnGoEnd;
+            @GoEnd.canceled -= instance.OnGoEnd;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -329,5 +358,6 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         void OnBackG(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
+        void OnGoEnd(InputAction.CallbackContext context);
     }
 }

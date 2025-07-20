@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mappings:
   - actionReference: {fileID: 8420763642208741025, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
-    sceneName: DomyMoveTest
+    sceneName: DomyRoom
   - actionReference: {fileID: -2729978598956131629, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: VegetableAndDonut
 --- !u!328 &112480024

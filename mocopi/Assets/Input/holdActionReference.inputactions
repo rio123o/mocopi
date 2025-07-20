@@ -1,0 +1,34 @@
+{
+    "name": "holdActionReference",
+    "maps": [
+        {
+            "name": "HoldAction",
+            "id": "7da9da58-a45b-41e5-ad04-66cffe611ebd",
+            "actions": [
+                {
+                    "name": "Push",
+                    "type": "Button",
+                    "id": "0fe3c9be-9276-4d32-9372-8449ba20eee5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a4b13f21-533d-4925-a84d-13ca05a5041b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
