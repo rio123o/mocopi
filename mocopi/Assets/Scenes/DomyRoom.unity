@@ -371,6 +371,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2014706555838215247, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
   m_PrefabInstance: {fileID: 2019378808}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &164629451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4526350294426372363, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
+  m_PrefabInstance: {fileID: 508988063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &164629452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164629451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163de355e8fd8e4b83b631e07455323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMethod: 0
+  skinnedMeshRenderer: {fileID: 218183145}
+  blendShapes:
+  - phoneme: A
+    index: 6
+    maxWeight: 1
+  - phoneme: I
+    index: 7
+    maxWeight: 1
+  - phoneme: U
+    index: 8
+    maxWeight: 1
+  - phoneme: E
+    index: 9
+    maxWeight: 1
+  - phoneme: O
+    index: 10
+    maxWeight: 1
+  maxBlendShapeValue: 100
+  minVolume: -2.5
+  maxVolume: -1.5
+  smoothness: 0.05
+  usePhonemeBlend: 0
 --- !u!1 &191741317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1093626973678728773, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
@@ -448,6 +488,11 @@ MonoBehaviour:
   sphereColliders: []
   capsuleColliders: []
   panelColliders: []
+--- !u!137 &218183145 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 912807223695109586, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
+  m_PrefabInstance: {fileID: 508988063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &247926165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5743253451581303895, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
@@ -1162,11 +1207,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -2251225105771451944, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
   m_PrefabInstance: {fileID: 508988063}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &615801603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2486372694247611685, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
-  m_PrefabInstance: {fileID: 508988063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &615801604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1746,7 +1786,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1152168442
 GameObject:
@@ -3189,7 +3229,7 @@ MonoBehaviour:
   onLipSyncUpdate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 486872050}
+      - m_Target: {fileID: 164629452}
         m_TargetAssemblyTypeName: uLipSync.uLipSyncBlendShape, uLipSync.Runtime
         m_MethodName: OnLipSyncUpdate
         m_Mode: 0
@@ -3216,7 +3256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2019378808
 PrefabInstance:
