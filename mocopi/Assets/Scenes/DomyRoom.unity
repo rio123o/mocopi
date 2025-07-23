@@ -946,18 +946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03118221f4bfcd74ba0ad8075da02411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stiffnessForce: 0.01
+  stiffnessForce: 50
   dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
+  springForce: {x: 0, y: 0, z: 0}
   windInfluence: 1
   pivotNode: {fileID: 323657040}
   angularStiffness: 100
   yAngleLimits:
-    active: 1
+    active: 0
     min: -20
     max: 20
   zAngleLimits:
-    active: 1
+    active: 0
     min: -20
     max: 20
   lengthLimitTargets: []
@@ -2344,6 +2344,11 @@ MonoBehaviour:
   sphereColliders: []
   capsuleColliders: []
   panelColliders: []
+--- !u!4 &1602784387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5786450632392444851, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
+  m_PrefabInstance: {fileID: 508988063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635664427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2155950451684465364, guid: 62cf1b90f4294bc4bba3188c99738490, type: 3}
@@ -2490,6 +2495,37 @@ MonoBehaviour:
   sphereColliders: []
   capsuleColliders: []
   panelColliders: []
+--- !u!1 &1681038243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8091027047349394350, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
+  m_PrefabInstance: {fileID: 2019378808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1773428102 &1681038244
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681038243}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 3.6445038, z: -1.733776}
+  m_RotationAtRest: {x: 76.141495, y: 0.79008204, z: 90.81378}
+  m_TranslationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 1602784387}
+    weight: 1
 --- !u!1 &1702006975 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8396099552760464450, guid: 3908a5d067d688f49bfc784d55abbf79, type: 3}
@@ -3386,7 +3422,7 @@ ParentConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019378810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Weight: 1
   m_TranslationAtRest: {x: 0, y: 0, z: 0}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
@@ -3400,8 +3436,8 @@ ParentConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_IsContraintActive: 0
-  m_IsLocked: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 1
   m_Sources:
   - sourceTransform: {fileID: 508988065}
     weight: 1
@@ -3549,7 +3585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03118221f4bfcd74ba0ad8075da02411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stiffnessForce: 1500
+  stiffnessForce: 100
   dragForce: 0.4
   springForce: {x: 0, y: 0, z: 0}
   windInfluence: 1
@@ -3590,18 +3626,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03118221f4bfcd74ba0ad8075da02411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stiffnessForce: 0.01
+  stiffnessForce: 50
   dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
+  springForce: {x: 0, y: 0, z: 0}
   windInfluence: 1
   pivotNode: {fileID: 305366058}
   angularStiffness: 100
   yAngleLimits:
-    active: 1
+    active: 0
     min: -20
     max: 20
   zAngleLimits:
-    active: 1
+    active: 0
     min: -20
     max: 20
   lengthLimitTargets: []
