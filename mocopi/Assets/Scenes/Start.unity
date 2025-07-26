@@ -643,6 +643,7 @@ MonoBehaviour:
   - actionReference: {fileID: -7529576752002962177, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: DomyRoom
   preLoadClip: {fileID: 8300000, guid: 49cb34248b654a94c9627094ea4fe345, type: 3}
+  loadVolume: 0.2
 --- !u!1 &1477215260
 GameObject:
   m_ObjectHideFlags: 0
