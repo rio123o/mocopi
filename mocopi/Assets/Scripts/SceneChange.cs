@@ -22,6 +22,10 @@ public class SceneChange : MonoBehaviour
     [Header("シーン切り替え前に鳴らす効果音 (必要な時)")]
     [SerializeField] private AudioClip preLoadClip;
 
+    [Header("シーン切り替え前の効果音の音量")]
+    [SerializeField, Range(0f, 1f)]
+    private float loadVolume = 1f;
+
     //  効果音を鳴らすAudioSource
     private AudioSource audioSource;
 
@@ -90,7 +94,7 @@ public class SceneChange : MonoBehaviour
 
     private IEnumerator PlayThenLoad(string sceneName)
     {
-        audioSource.PlayOneShot(preLoadClip);
+        audioSource.PlayOneShot(preLoadClip, loadVolume);
         //  効果音の長さだけ待ってからロード
         yield return new WaitForSeconds(preLoadClip.length);
         SceneManager.LoadScene(sceneName);

@@ -515,7 +515,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2381,6 +2381,7 @@ MonoBehaviour:
   - actionReference: {fileID: 505807591791628305, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: DomyRoom
   preLoadClip: {fileID: 0}
+  loadVolume: 1
 --- !u!4 &374706162
 Transform:
   m_ObjectHideFlags: 0
@@ -5935,7 +5936,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6040,7 +6041,7 @@ MonoBehaviour:
   domyHandHolder: {fileID: 1520593619}
   throwForce: 20
   throwClip: {fileID: 8300000, guid: 71d94e320b1f0774c901f41442faba98, type: 3}
-  audioSource: {fileID: 1376133335}
+  audioSource: {fileID: 1385338027}
   lifeTime: 5
   disappearClip: {fileID: 8300000, guid: 98950de9afcbca14eb1750cfc255a50b, type: 3}
 --- !u!4 &1385338029 stripped
