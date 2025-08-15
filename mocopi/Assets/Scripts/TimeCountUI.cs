@@ -26,8 +26,12 @@ public class TimeCountUI : MonoBehaviour
     [Header("効果音再生用のAudioSource")]
     [SerializeField] private AudioSource audioSource;
 
+    [Header("ゲーム開始のキー")]
+    [SerializeField] private KeyCode startKey = KeyCode.K;
+
     private float remainTime;  //  残り時間
-    private bool isMeasuring;
+    private bool isMeasuring;  //  計測中
+    private bool hasStarted;  //  開始したかどうか
 
     void Start()
     {
@@ -50,21 +54,30 @@ public class TimeCountUI : MonoBehaviour
             return;
         }
 
-        isMeasuring = true;
+        isMeasuring = false;
+        hasStarted = false;
+
         remainTime = timeLimitSeconds;
         UpdateTimerUI();
-
-        //  開始時のサウンド再生
-        if (startClip != null)
-        {
-            audioSource.PlayOneShot(startClip);
-        }
-
     }
 
     void Update()
     {
+        //  開始していない時に、ゲーム開始キーが押されたら始める
+        if(!hasStarted && Input.GetKeyDown(startKey))
+        {
+            hasStarted = true;
+            isMeasuring = true;
+
+            //  開始時のサウンド再生
+            if (startClip != null)
+            {
+                audioSource.PlayOneShot(startClip);
+            }
+        }
+
         if (!isMeasuring) return;
+
         remainTime -= Time.deltaTime;
 
         if (remainTime <= 0f)
