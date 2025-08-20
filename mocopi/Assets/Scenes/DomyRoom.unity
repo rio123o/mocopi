@@ -820,6 +820,7 @@ GameObject:
   - component: {fileID: 2003578737}
   - component: {fileID: 2003578736}
   - component: {fileID: 2003578735}
+  - component: {fileID: 2003578739}
   m_Layer: 0
   m_Name: LipSyncR
   m_TagString: Untagged
@@ -984,6 +985,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2003578739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003578734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c122fe8aa21f148b4826c6ac4caeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lipsyncSource: {fileID: 2003578736}
+  muteAudioSource: 1
 --- !u!1001 &7050088271898723097
 PrefabInstance:
   m_ObjectHideFlags: 0
