@@ -387,8 +387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 837.11, y: 470.847}
+  m_AnchoredPosition: {x: 0, y: 121}
+  m_SizeDelta: {x: 2323.0674, y: 1306.6494}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329389048
 MonoBehaviour:
@@ -789,6 +789,8 @@ MonoBehaviour:
   mappings:
   - actionReference: {fileID: -7857290063165473455, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: Start
+  preLoadClip: {fileID: 0}
+  loadVolume: 1
 --- !u!328 &2033177879
 VideoPlayer:
   m_ObjectHideFlags: 0
