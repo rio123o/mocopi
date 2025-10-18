@@ -542,6 +542,7 @@ MonoBehaviour:
   - phoneme: '-'
     index: -1
     maxWeight: 1
+  maxBlendShapeValue: 100
   minVolume: -2.9951982
   maxVolume: -1.9951982
   smoothness: 0.05
