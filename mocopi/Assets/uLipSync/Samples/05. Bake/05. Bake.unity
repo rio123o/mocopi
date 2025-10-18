@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2163de355e8fd8e4b83b631e07455323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateMethod: 0
   skinnedMeshRenderer: {fileID: 187725991}
   blendShapes:
   - phoneme: A
@@ -480,9 +481,11 @@ MonoBehaviour:
   - phoneme: '-'
     index: -1
     maxWeight: 1
+  maxBlendShapeValue: 100
   minVolume: -2.999837
   maxVolume: -1.9998369
   smoothness: 0.06
+  usePhonemeBlend: 0
 --- !u!114 &496503030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +669,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 88eeda7d3a9f2492da9213d1c1ab46d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88eeda7d3a9f2492da9213d1c1ab46d0, type: 3}
 --- !u!1 &1799658845
