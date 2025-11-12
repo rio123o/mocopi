@@ -8,14 +8,14 @@ public class ParticleToggle : MonoBehaviour
     [SerializeField] private KeyCode key = KeyCode.H;
 
     [Header("操作するParticleSystem")]
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem pSystem;
 
     //  再生しているかどうかのフラグ
     private bool isOn = false;
 
     void Awake()
     {
-        if(particleSystem == null)
+        if(pSystem == null)
         {
             Debug.LogError("操作するParticleSystemがアタッチされていません");
         }
@@ -23,18 +23,18 @@ public class ParticleToggle : MonoBehaviour
 
     void Start()
     {
-        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        pSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 
     void Update()
     {
-        if(particleSystem && Input.GetKeyDown(key))
+        if(pSystem && Input.GetKeyDown(key))
         {
             isOn = !isOn;
             if(isOn)
-                particleSystem.Play();  //  再生する
+                pSystem.Play();  //  再生する
             else  //  再生を止める
-                particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                pSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
         }
     }
