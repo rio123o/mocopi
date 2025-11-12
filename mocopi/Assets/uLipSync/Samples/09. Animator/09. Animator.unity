@@ -660,6 +660,7 @@ MonoBehaviour:
   minVolume: -2.5
   maxVolume: -1.5
   smoothness: 0.05
+  minimalValueThreshold: 0.001
 --- !u!114 &496503036
 MonoBehaviour:
   m_ObjectHideFlags: 0
