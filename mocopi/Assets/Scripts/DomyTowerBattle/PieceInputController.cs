@@ -10,6 +10,9 @@ public class PieceInputController : MonoBehaviour
 
     private bool canDrop = true;  //  連射対策のフラグ
 
+    //  今、操作しているピースがあるか
+    public bool HasControlPiece => current != null && !current.HasDropped;
+
     private TowerGameControls controls;
     private float moveAxisX;
     private float lastMoveSignX = 0f;

@@ -33,11 +33,7 @@ public class TowerPieceSpawner : MonoBehaviour
     public Vector3 SpawnPosition => spawnPosition;
     public float SpawnHeight => spawnHeight;
 
-    /// <summary>
-    ///  Spriteからピースを生成して返す
-    /// </summary>
-    /// <param name="sprite"></param>
-    /// <returns></returns>
+    //  Spriteからピースを生成して返す
     public GameObject Spawn(Sprite sprite)
     {
         if(sprite == null)

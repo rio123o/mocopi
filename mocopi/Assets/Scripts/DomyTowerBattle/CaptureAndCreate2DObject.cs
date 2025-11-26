@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CaptureAndCreate2DObject : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class CaptureAndCreate2DObject : MonoBehaviour
 
     [Header("生成先のTowerPieceSpawner")]
     [SerializeField] private TowerPieceSpawner spawner;
+
+    //  生成したピースを通知するイベント
+    public event Action<DroppablePiece> OnPieceCreated;
 
     /// <summary>
     ///  キャプチャしてスプライト化し、ピースを生成する。
@@ -90,6 +94,13 @@ public class CaptureAndCreate2DObject : MonoBehaviour
         {
             Debug.LogError("[CaptureAndCreate2DObject] ピース生成に失敗しました。");
             yield break;
+        }
+
+        //  ピース生成の通知
+        var droppablePiece = pieceGO.GetComponent<DroppablePiece>();
+        if(droppablePiece != null)
+        {
+            OnPieceCreated?.Invoke(droppablePiece);
         }
     }
 }
