@@ -155,7 +155,18 @@ public partial class @TowerGameControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30244e6c-3ca1-45a9-9454-91bafb9e2b5c"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c8810f5-f5ba-4a8b-863b-ca6cbe2106c5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
