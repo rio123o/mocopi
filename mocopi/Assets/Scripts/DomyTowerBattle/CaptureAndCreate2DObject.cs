@@ -32,9 +32,7 @@ public class CaptureAndCreate2DObject : MonoBehaviour
     //  生成したピースを通知するイベント
     public event Action<DroppablePiece> OnPieceCreated;
 
-    /// <summary>
-    ///  キャプチャしてスプライト化し、ピースを生成する。
-    /// </summary>
+    //  キャプチャしてスプライト化し、ピースを生成する。
     public void CaptureAndCreate()
     {
         StartCoroutine(DoCaptureAndCreate());
