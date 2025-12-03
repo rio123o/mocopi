@@ -370,6 +370,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6251824868488038489, guid: 162f007a19f75524892e4118adc83b93, type: 3}
+      propertyPath: pSystem
+      value: 
+      objectReference: {fileID: 227479855}
     - target: {fileID: 6293146038820117931, guid: 162f007a19f75524892e4118adc83b93, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -836,6 +840,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!198 &227479855 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6613324069804161386, guid: 162f007a19f75524892e4118adc83b93, type: 3}
+  m_PrefabInstance: {fileID: 60171507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581098188
 GameObject:
   m_ObjectHideFlags: 0
