@@ -14,6 +14,14 @@ public class DroppablePiece : MonoBehaviour
     [Header("デバッグ用の表示(落としたかどうか)")]
     [SerializeField] private bool hasDropped = false;
 
+    [Header("停止とみなす条件")]
+    [SerializeField] private float stopVelocityThreshold = 0.05f;  //  この速度以下なら停止とみなす
+    [SerializeField] private float stopAngularVelocityThreshold = 5f;  //  この角速度以下なら停止とみなす
+    [SerializeField] private float stopDuration = 0.5f;  //  この時間以上停止状態が続いたら完全停止とみなす
+
+    //  このピースが完全に停止した時のイベント
+    public event System.Action OnPieceStopped;
+
     private Rigidbody2D rb;
 
     void Awake()
