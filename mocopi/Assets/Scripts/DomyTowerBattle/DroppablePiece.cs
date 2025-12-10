@@ -14,6 +14,14 @@ public class DroppablePiece : MonoBehaviour
     [Header("デバッグ用の表示(落としたかどうか)")]
     [SerializeField] private bool hasDropped = false;
 
+    [Header("停止とみなす条件")]
+    [SerializeField] private float stopVelocityThreshold = 0.05f;  //  この速度以下なら停止とみなす
+    [SerializeField] private float stopAngularVelocityThreshold = 5f;  //  この角速度以下なら停止とみなす
+    [SerializeField] private float stopDuration = 0.5f;  //  この時間以上停止状態が続いたら完全停止とみなす
+
+    //  このピースが完全に停止した時のイベント
+    public event System.Action OnPieceStopped;
+
     private Rigidbody2D rb;
 
     void Awake()
@@ -35,6 +43,9 @@ public class DroppablePiece : MonoBehaviour
         if (hasDropped) return;
         hasDropped = true;
         rb.isKinematic = false;  //  kinematicを解除すると、spawn時に設定済みのgravityScaleに変わる
+
+        //  停止監視コルーチンを開始
+        StartCoroutine(WatchStop());
     }
 
     /// <summary>
@@ -56,10 +67,7 @@ public class DroppablePiece : MonoBehaviour
 
     }
 
-    /// <summary>
-    ///  プレビュー中の微移動
-    /// </summary>
-    /// <param name="dir"></param>
+    //  プレビュー中の微移動
     public void MoveStep(Vector2 dir)
     {
         if(hasDropped) return;
@@ -75,4 +83,28 @@ public class DroppablePiece : MonoBehaviour
     //  落下済みかどうかの外部参照
     public bool HasDropped => hasDropped;
 
+    private IEnumerator WatchStop()
+    {
+        float t = 0;
+
+        while (true) 
+        {
+            //  停止状態かどうかをチェック
+            bool isStopped = rb.IsSleeping() || (rb.velocity.sqrMagnitude < (stopVelocityThreshold * stopVelocityThreshold) && Mathf.Abs(rb.angularVelocity) < stopAngularVelocityThreshold);
+
+            //  時間が経過したら完全停止とみなす
+            t = isStopped ? t + Time.deltaTime : 0f;
+
+            //  完全停止したらループ終了
+            if (t >= stopDuration)
+            {
+                break;
+            }
+            //  次のフレームまで待機
+            yield return null;
+        }
+
+        //  停止イベントを発行
+        OnPieceStopped?.Invoke();
+    }
 }
