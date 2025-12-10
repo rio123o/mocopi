@@ -29,15 +29,22 @@ public class TowerPieceSpawner : MonoBehaviour
     [Header("プレビュー中だと分かるように名前を変更")]
     [SerializeField] private string previewChangeName = "[Preview]";
 
+    [Header("Physicsの調節(跳ねる、滑るなどの抑制)")]
+    [SerializeField] private PhysicsMaterial2D physicsMaterial2D;
+    [Header("跳ね返りの抑制")]
+    [SerializeField,Min(0f)] private float linearDrag = 0.8f;
+    [Header("滑りの抑制")]
+    [SerializeField,Min(0f)] private float angularDrag = 1.2f;
+    [Header("当たり判定の検出モード")]
+    [SerializeField] private CollisionDetectionMode2D collisionMode = CollisionDetectionMode2D.Continuous;
+    [Header("表示の滑らかさ")]
+    [SerializeField] private RigidbodyInterpolation2D interpolation = RigidbodyInterpolation2D.Interpolate;
+
     public Transform SpawnParent => spawnParent;
     public Vector3 SpawnPosition => spawnPosition;
     public float SpawnHeight => spawnHeight;
 
-    /// <summary>
-    ///  Spriteからピースを生成して返す
-    /// </summary>
-    /// <param name="sprite"></param>
-    /// <returns></returns>
+    //  Spriteからピースを生成して返す
     public GameObject Spawn(Sprite sprite)
     {
         if(sprite == null)
@@ -65,9 +72,22 @@ public class TowerPieceSpawner : MonoBehaviour
         var poly = spawnedPiece.AddComponent<PolygonCollider2D>();
         poly.isTrigger = false;
 
+        if(physicsMaterial2D)
+        {
+            //  2D物理マテリアルの設定
+            poly.sharedMaterial = physicsMaterial2D;
+        }
+
         //  物理の生成
         var rb = spawnedPiece.AddComponent<Rigidbody2D>();
         rb.gravityScale = gravityScale;
+
+
+        rb.drag = linearDrag;  //  跳ね返りの抑制
+        rb.angularDrag = angularDrag;  //  滑りの抑制
+        rb.collisionDetectionMode = collisionMode;  //  貫通防止の当たり判定の検出モード
+        rb.interpolation = interpolation;  //  表示の滑らかさ
+
 
         //  プレビュー時の操作
         var drop = spawnedPiece.AddComponent<DroppablePiece>();

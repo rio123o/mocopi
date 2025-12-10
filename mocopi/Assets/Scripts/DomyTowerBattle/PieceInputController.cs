@@ -6,71 +6,113 @@ using UnityEngine.InputSystem;
 public class PieceInputController : MonoBehaviour
 {
     [Header("操作対象のDroppablePiece")]
-    [SerializeField] private
-        DroppablePiece current;  //  TowerGameManagerから都度セットする
+    [SerializeField] private DroppablePiece current;  //  TowerGameManagerから都度セットする
 
-    [Header("動かす方向を左右のみに制限する")]
-    [SerializeField] private bool horizontalOnly = true;
+    [Header("入力設定")]
+    [SerializeField] private float inputDeadzone = 0.15f;
+
+    [Header("滑らかにする移動設定")]
+    [SerializeField] private float moveSpeed = 3f;      //  押し具合に応じた移動速度
+    [SerializeField] private float smoothTime = 0.06f;
 
     private bool canDrop = true;  //  連射対策のフラグ
 
+    // 今、操作しているピースがあるか
+    public bool HasControlPiece => current != null && !current.HasDropped;
+
     private TowerGameControls controls;
-    private Vector2 moveAxis;
-    private float lastMoveSignX = 0f;
+    private float moveAxisX;
+
+    //  滑らに移動させるための変数
+    private Vector3 targetPosition;
+    private Vector3 smoothVelocity;
+    private bool isHoldingMove;
 
     private void Awake()
     {
         controls = new TowerGameControls();
 
-        //  左右移動入力
-        //  値が変化した瞬間に1ステップだけ移動させるもの
+        //  入力値を受け取る
         controls.GamePlay.Move.performed += ctx =>
         {
-            moveAxis = ctx.ReadValue<Vector2>();
-            if (horizontalOnly) moveAxis = new Vector2(moveAxis.x, 0f);
+            moveAxisX = ctx.ReadValue<float>();
 
-            if (current == null || current.HasDropped) return;
-
-            // 0から変化した時だけMoveStepを1回呼ぶ
-            float sign = Mathf.Sign(moveAxis.x);
-            if (Mathf.Abs(sign) > 0f && sign != lastMoveSignX)
+            //  デッドゾーン内は無視
+            if (Mathf.Abs(moveAxisX) <= inputDeadzone)
             {
-                current.MoveStep(new Vector2(sign, 0f));   // DroppablePieceのMoveStepを呼ぶ
-                lastMoveSignX = sign;
+                isHoldingMove = false;
+                return;
             }
+
+            isHoldingMove = true;
         };
 
         controls.GamePlay.Move.canceled += _ =>
         {
-            moveAxis = Vector2.zero;
-            lastMoveSignX = 0f;
+            moveAxisX = 0f;
+            isHoldingMove = false;
         };
 
         //  落下入力
         controls.GamePlay.Drop.performed += _ =>
         {
             if (current == null || current.HasDropped) return;
-            if (!canDrop) return;     //  連射対策
+            if (!canDrop) return; // 連射対策
 
             canDrop = false;
             current.Drop();
         };
         controls.GamePlay.Drop.canceled += _ =>
         {
-            //  ボタンを離したらまた使えるようにする
             canDrop = true;
         };
     }
 
-    private void OnEnable() => controls.Enable();
-    private void OnDisable() => controls.Disable();
+    private void OnEnable() => controls?.Enable();
+    private void OnDisable() => controls?.Disable();
 
-    /// <summary>外部のGameManagerなどから現在の操作対象を差し替える</summary>
+    private void OnDestroy()
+    {
+        //  InputActionAssetを破棄してリークを防ぐ
+        controls?.Dispose();
+    }
+
+    private void Update()
+    {
+        if (current == null || current.HasDropped) return;
+
+        if (isHoldingMove && Mathf.Abs(moveAxisX) > inputDeadzone)
+        {
+            targetPosition += Vector3.right * (moveAxisX * moveSpeed * Time.deltaTime);
+        }
+
+        //  現在位置をターゲットへ追従させる
+        current.transform.position = Vector3.SmoothDamp(
+            current.transform.position,
+            targetPosition,
+            ref smoothVelocity,
+            smoothTime
+        );
+    }
+
+    //  外部のGameManagerなどから現在の操作対象を差し替える
     public void SetCurrent(DroppablePiece piece)
     {
         current = piece;
-        moveAxis = Vector2.zero;
-        lastMoveSignX = 0f;
+        moveAxisX = 0f;
+        isHoldingMove = false;
+        smoothVelocity = Vector3.zero;
+
+        if (current != null)
+        {
+            //  ターゲット位置を現在位置に同期して瞬間移動を防ぐ
+            targetPosition = current.transform.position;
+        }
+        else
+        {
+            targetPosition = Vector3.zero;
+        }
+
         canDrop = true;
     }
 }

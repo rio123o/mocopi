@@ -40,17 +40,6 @@ public partial class @TowerGameControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""2b0a10cd-e665-4568-a4f8-d6e6cc4c2a6b"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Falt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""33396b9c-ad2f-41c1-8b56-041519361a3b"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -155,7 +144,18 @@ public partial class @TowerGameControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30244e6c-3ca1-45a9-9454-91bafb9e2b5c"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c8810f5-f5ba-4a8b-863b-ca6cbe2106c5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
