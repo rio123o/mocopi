@@ -43,6 +43,9 @@ public class DroppablePiece : MonoBehaviour
         if (hasDropped) return;
         hasDropped = true;
         rb.isKinematic = false;  //  kinematicを解除すると、spawn時に設定済みのgravityScaleに変わる
+
+        //  停止監視コルーチンを開始
+        StartCoroutine(WatchStop());
     }
 
     /// <summary>
@@ -64,10 +67,7 @@ public class DroppablePiece : MonoBehaviour
 
     }
 
-    /// <summary>
-    ///  プレビュー中の微移動
-    /// </summary>
-    /// <param name="dir"></param>
+    //  プレビュー中の微移動
     public void MoveStep(Vector2 dir)
     {
         if(hasDropped) return;
@@ -83,4 +83,28 @@ public class DroppablePiece : MonoBehaviour
     //  落下済みかどうかの外部参照
     public bool HasDropped => hasDropped;
 
+    private IEnumerator WatchStop()
+    {
+        float t = 0;
+
+        while (true) 
+        {
+            //  停止状態かどうかをチェック
+            bool isStopped = rb.IsSleeping() || (rb.velocity.sqrMagnitude < (stopVelocityThreshold * stopVelocityThreshold) && Mathf.Abs(rb.angularVelocity) < stopAngularVelocityThreshold);
+
+            //  時間が経過したら完全停止とみなす
+            t = isStopped ? t + Time.deltaTime : 0f;
+
+            //  完全停止したらループ終了
+            if (t >= stopDuration)
+            {
+                break;
+            }
+            //  次のフレームまで待機
+            yield return null;
+        }
+
+        //  停止イベントを発行
+        OnPieceStopped?.Invoke();
+    }
 }
