@@ -89,6 +89,15 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextTower"",
+                    ""type"": ""Button"",
+                    ""id"": ""7468063f-b507-4675-976e-e38a137cdeef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -179,6 +188,17 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
                     ""action"": ""GoEnd"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""105c0659-7ab7-4b03-b31c-1c6bfa164171"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextTower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -194,6 +214,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         m_UI_Return = m_UI.FindAction("Return", throwIfNotFound: true);
         m_UI_Next = m_UI.FindAction("Next", throwIfNotFound: true);
         m_UI_GoEnd = m_UI.FindAction("GoEnd", throwIfNotFound: true);
+        m_UI_NextTower = m_UI.FindAction("NextTower", throwIfNotFound: true);
     }
 
     ~@SceneTransitionInputSystem()
@@ -267,6 +288,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
     private readonly InputAction m_UI_Return;
     private readonly InputAction m_UI_Next;
     private readonly InputAction m_UI_GoEnd;
+    private readonly InputAction m_UI_NextTower;
     public struct UIActions
     {
         private @SceneTransitionInputSystem m_Wrapper;
@@ -278,6 +300,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         public InputAction @Return => m_Wrapper.m_UI_Return;
         public InputAction @Next => m_Wrapper.m_UI_Next;
         public InputAction @GoEnd => m_Wrapper.m_UI_GoEnd;
+        public InputAction @NextTower => m_Wrapper.m_UI_NextTower;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +331,9 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
             @GoEnd.started += instance.OnGoEnd;
             @GoEnd.performed += instance.OnGoEnd;
             @GoEnd.canceled += instance.OnGoEnd;
+            @NextTower.started += instance.OnNextTower;
+            @NextTower.performed += instance.OnNextTower;
+            @NextTower.canceled += instance.OnNextTower;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -333,6 +359,9 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
             @GoEnd.started -= instance.OnGoEnd;
             @GoEnd.performed -= instance.OnGoEnd;
             @GoEnd.canceled -= instance.OnGoEnd;
+            @NextTower.started -= instance.OnNextTower;
+            @NextTower.performed -= instance.OnNextTower;
+            @NextTower.canceled -= instance.OnNextTower;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -359,5 +388,6 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
         void OnReturn(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
         void OnGoEnd(InputAction.CallbackContext context);
+        void OnNextTower(InputAction.CallbackContext context);
     }
 }
