@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/VegetableAndDonut.unity
     guid: 35d76d8ba9698a64e9c265615e2b5c65
   - enabled: 1
+    path: Assets/Scenes/DomyTowerBattle.unity
+    guid: 94fbbababe153e34a9e3be159b2f4079
+  - enabled: 1
     path: Assets/Scenes/Wait.unity
     guid: d85223c6ed2083945888ea0ebe672efd
   - enabled: 1
