@@ -192,7 +192,7 @@ public partial class @SceneTransitionInputSystem: IInputActionCollection2, IDisp
                 {
                     ""name"": """",
                     ""id"": ""105c0659-7ab7-4b03-b31c-1c6bfa164171"",
-                    ""path"": ""<Keyboard>/u"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
