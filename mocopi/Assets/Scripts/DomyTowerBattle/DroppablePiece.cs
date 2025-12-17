@@ -48,18 +48,14 @@ public class DroppablePiece : MonoBehaviour
         StartCoroutine(WatchStop());
     }
 
-    /// <summary>
-    ///  プレビュー中の左回転
-    /// </summary>
+    //  プレビュー中の左回転
     public void RotateLeft()
     {
         if(hasDropped) return;
         transform.Rotate(0f, 0f, rotateDommy);  //  Z軸左回り回転
     }
 
-    /// <summary>
-    ///  プレビュー中の右回転
-    /// </summary>
+    //  プレビュー中の右回転
     public void RotateRight()
     {
         if(hasDropped) return;
