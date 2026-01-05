@@ -24,6 +24,8 @@ public class DroppablePiece : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private bool stopEventFired = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +33,7 @@ public class DroppablePiece : MonoBehaviour
 
     void Start()
     {
-        //  念のため、プレビュー開始時に停止状態でなければ停止する
+        //  プレビュー開始時に停止状態でなければ停止する
         if(!rb.isKinematic && !hasDropped)
         {
             rb.isKinematic = true;
@@ -44,7 +46,7 @@ public class DroppablePiece : MonoBehaviour
         hasDropped = true;
         rb.isKinematic = false;  //  kinematicを解除すると、spawn時に設定済みのgravityScaleに変わる
 
-        //  停止監視コルーチンを開始
+        //  停止監視コルーチンを開始する
         StartCoroutine(WatchStop());
     }
 
@@ -83,6 +85,8 @@ public class DroppablePiece : MonoBehaviour
     {
         float t = 0;
 
+        ver wait = new WaitForFixedUpdate();
+
         while (true) 
         {
             //  停止状態かどうかをチェック
@@ -100,7 +104,12 @@ public class DroppablePiece : MonoBehaviour
             yield return null;
         }
 
-        //  停止イベントを発行
-        OnPieceStopped?.Invoke();
+
+        if(!stopEventFired)
+        {
+            stopEventFired = true;
+            //  停止イベントを発行
+            OnPieceStopped?.Invoke();
+        }
     }
 }
