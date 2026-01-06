@@ -8,17 +8,17 @@ public class HeightMaxSession : MonoBehaviour
     [SerializeField] private HeightMeter2D heightMeter;
 
     //  このシーンに存在しているか
-    private static bool exsistsScene = false;
+    private static bool s_exists = false;
 
     private void Awake()
     {
         //  シーン側に複数置かれた場合の二重にならないための対策
-        if (exsistsScene)
+        if (s_exists)
         {
             Destroy(gameObject);
             return;
         }
-        exsistsScene = true;
+        s_exists = true;
         DontDestroyOnLoad(gameObject);
 
         if (!heightMeter) heightMeter = FindObjectOfType<HeightMeter2D>();
@@ -26,41 +26,65 @@ public class HeightMaxSession : MonoBehaviour
         if (!heightMeter)
         {
             //  高さ計測用のオブジェクトが見つからなかった場合は破棄する
-            exsistsScene = false;
+            s_exists = false;
             Destroy(gameObject);
             return;
         }
 
+        ApplySavedToMeter(heightMeter);
+        HookMeter(heightMeter);
 
+        SceneManager.sceneLoaded += OnSceneLoaded;  //  シーン切り替え時のイベント登録
     }
-
 
     private void OnDestroy()
     {
-        SeaneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         UnhookMeter(heightMeter);
-        if (exsistsScene) exsistsScene = false;
+        if (s_exists) s_exists = false;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        UnhookMeter(meter);
-        meter = FindObjectOfType<HeightMeter2D>();
+        UnhookMeter(heightMeter);
+        heightMeter = FindObjectOfType<HeightMeter2D>();
 
         //  次のシーンに高さ計測用オブジェクトが存在しなかった場合は破棄する
         if (!heightMeter)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            exsistsScene = false;
+            s_exists = false;
             Destroy(gameObject);
             return;
         }
 
-
+        ApplySavedToMeter(heightMeter);
+        HookMeter(heightMeter);
     }
 
-    private void ApplySavedToMator(HeightMeter2D meter)
+    private void ApplySavedToMeter(HeightMeter2D meter)
     {
         if (!meter) return;
+        meter.InitializeMax(HoldBest.BestHeight);  //  保存されている最高到達高さを適用する
+    }
+
+    private void HookMeter(HeightMeter2D meter)
+    {
+        if (!meter) return;
+        meter.OnMaxHeightUpdated += HandleMaxHeightUpdate;
+    }
+
+    private void UnhookMeter(HeightMeter2D meter)
+    {
+        if (!meter) return;
+        meter.OnMaxHeightUpdated -= HandleMaxHeightUpdate;
+    }
+
+    private void HandleMaxHeightUpdate(float newMaxHeight)
+    {
+        if(newMaxHeight > HoldBest.BestHeight)
+        {
+            HoldBest.BestHeight = newMaxHeight;
+        }
     }
 }

@@ -42,7 +42,7 @@ public class DroppablePiece : MonoBehaviour
 
     public void Drop()
     {
-        if (hasDropped) return;
+        if(hasDropped) return;
         hasDropped = true;
         rb.isKinematic = false;  //  kinematicを解除すると、spawn時に設定済みのgravityScaleに変わる
 
@@ -70,7 +70,7 @@ public class DroppablePiece : MonoBehaviour
     {
         if(hasDropped) return;
 
-        if (dir.sqrMagnitude <= 0f) return;
+        if(dir.sqrMagnitude <= 0f) return;
 
         //  正規化して1ステップ分だけ移動する
         Vector2 step = dir.normalized * moveDommy;
@@ -83,17 +83,17 @@ public class DroppablePiece : MonoBehaviour
 
     private IEnumerator WatchStop()
     {
-        float t = 0;
+        float t = 0f;
 
-        ver wait = new WaitForFixedUpdate();
+        var wait = new WaitForFixedUpdate();
 
-        while (true) 
+        while(true) 
         {
             //  停止状態かどうかをチェック
             bool isStopped = rb.IsSleeping() || (rb.velocity.sqrMagnitude < (stopVelocityThreshold * stopVelocityThreshold) && Mathf.Abs(rb.angularVelocity) < stopAngularVelocityThreshold);
 
             //  時間が経過したら完全停止とみなす
-            t = isStopped ? t + Time.deltaTime : 0f;
+            t = isStopped ? t + Time.fixedDeltaTime : 0f;
 
             //  完全停止したらループ終了
             if (t >= stopDuration)
@@ -101,7 +101,7 @@ public class DroppablePiece : MonoBehaviour
                 break;
             }
             //  次のフレームまで待機
-            yield return null;
+            yield return wait;
         }
 
 
