@@ -40,6 +40,9 @@ public class TowerPieceSpawner : MonoBehaviour
     [Header("表示の滑らかさ")]
     [SerializeField] private RigidbodyInterpolation2D interpolation = RigidbodyInterpolation2D.Interpolate;
 
+    [Header("高さ計測用HeightMeter2Dの参照")]
+    [SerializeField] private HeightMeter2D heightMeter;
+
     public Transform SpawnParent => spawnParent;
     public Vector3 SpawnPosition => spawnPosition;
     public float SpawnHeight => spawnHeight;
@@ -92,8 +95,14 @@ public class TowerPieceSpawner : MonoBehaviour
         //  プレビュー時の操作
         var drop = spawnedPiece.AddComponent<DroppablePiece>();
 
+        //  高さ計測用のイベント登録
+        if (heightMeter)
+        {
+            drop.OnPieceStopped += heightMeter.MeasureNow;
+        }
+
         //  プレビューの停止
-        if(startInPreview)
+        if (startInPreview)
         {
             rb.isKinematic = true;
             spawnedPiece.name = previewChangeName + spawnedPiece.name;
