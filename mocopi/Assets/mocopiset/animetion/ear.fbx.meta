@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: texcha
-    second: {fileID: 2100000, guid: d45d250452cb30e4483753fc6b711fc4, type: 2}
+    second: {fileID: 2100000, guid: 9f2ee8a17f25b5140b6b2537e61b52e8, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: UV
-    second: {fileID: 2800000, guid: 2a9bb2098d5136c4bb5cb5e1e9d77b80, type: 3}
+    second: {fileID: 2800000, guid: 09b0c31d1f3127240a2869dee777baa4, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -24,7 +24,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -51,7 +51,7 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 0
     importVisibility: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 0
     importLights: 0
     nodeNameCollisionStrategy: 1
