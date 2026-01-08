@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: donmy_ear_ha-to
-  m_Speed: 5
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -59,7 +59,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: face
-  m_Speed: 5
+  m_Speed: 12
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -174,7 +174,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: donmy_ear_up1
-  m_Speed: 5
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -243,7 +243,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: donmy_ear_up2
-  m_Speed: 5
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -395,7 +395,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: donmy_ear_down
-  m_Speed: 5
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
