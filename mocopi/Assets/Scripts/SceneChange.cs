@@ -77,6 +77,7 @@ public class SceneChange : MonoBehaviour
         {
             if (ctx.action == map.ActionReference.action && !string.IsNullOrEmpty(map.SceneName))
             {
+                Time.timeScale = 1f;
                 if (preLoadClip != null)
                 {
                     //  Œø‰Ê‰¹‚ğ–Â‚ç‚µ‚Ä‚©‚çƒV[ƒ“ˆÚ“®
