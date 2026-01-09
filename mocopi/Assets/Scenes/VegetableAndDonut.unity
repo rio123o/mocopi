@@ -11966,6 +11966,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842628482}
   m_Mesh: {fileID: 4300000, guid: a2848514d81208b45acb2d6cb8e2953c, type: 3}
+--- !u!198 &1442019830 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6613324069804161386, guid: 162f007a19f75524892e4118adc83b93, type: 3}
+  m_PrefabInstance: {fileID: 1796787847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1449455430
 Transform:
   m_ObjectHideFlags: 0
@@ -15231,6 +15236,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6251824868488038489, guid: 162f007a19f75524892e4118adc83b93, type: 3}
+      propertyPath: pSystem
+      value: 
+      objectReference: {fileID: 1442019830}
     - target: {fileID: 6805678105719320474, guid: 162f007a19f75524892e4118adc83b93, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].y
       value: 76.14278
