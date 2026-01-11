@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 131214758}
   - component: {fileID: 131214761}
   - component: {fileID: 131214760}
-  - component: {fileID: 131214759}
   m_Layer: 5
   m_Name: HeightText (TMP)
   m_TagString: Untagged
@@ -274,29 +273,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 386.979, y: 89.861}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &131214759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131214757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90758f6a3938a4e4eb88a15f0405d4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meter: {fileID: 322599473}
-  currentHeightText: {fileID: 0}
-  maxHeightText: {fileID: 0}
-  currentPrefix: 'Height : '
-  maxPrefix: 'Max : '
-  suffix: ' cm'
-  decimalPlaces: 2
-  cmPerUnit: 11.938
 --- !u!114 &131214760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,14 +1239,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90758f6a3938a4e4eb88a15f0405d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meter: {fileID: 0}
-  currentHeightText: {fileID: 1071187213}
+  meter: {fileID: 322599473}
+  currentHeightTexts:
+  - {fileID: 131214760}
+  - {fileID: 1071187213}
   maxHeightText: {fileID: 2042420361}
   currentPrefix: 'Height : '
   maxPrefix: 'Max : '
   suffix: ' cm'
   decimalPlaces: 1
-  cmPerUnit: 11.938
+  cmPerUnit: 11
 --- !u!1 &1071187211
 GameObject:
   m_ObjectHideFlags: 0

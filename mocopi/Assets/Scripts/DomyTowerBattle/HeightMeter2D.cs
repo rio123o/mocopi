@@ -27,6 +27,7 @@ public class HeightMeter2D : MonoBehaviour
     public void InitializeMax(float value)
     {
         MaxHeight = Mathf.Max(0f, value);
+        OnMaxHeightUpdated?.Invoke(MaxHeight);
     }
 
     //  ‚‚³‚ğÄŒv‘ª‚·‚é
