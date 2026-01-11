@@ -10,7 +10,7 @@ public class HeightUI2D : MonoBehaviour
 
     [Header("高さ表示用TextMeshProUGUIの参照を指定する")]
     [Header("現在の高さを表示するTextMeshProUGUIコンポーネント")]
-    [SerializeField] private TextMeshProUGUI currentHeightText;
+    [SerializeField] private TextMeshProUGUI[] currentHeightTexts;
     [Header("シーケンス中の最高到達高さを表示するTextMeshProUGUIコンポーネント")]
     [SerializeField] private TextMeshProUGUI maxHeightText;
 
@@ -28,8 +28,6 @@ public class HeightUI2D : MonoBehaviour
     {
         if(!meter)
             meter = FindObjectOfType<HeightMeter2D>();
-        if(!currentHeightText)
-            currentHeightText = GetComponent<TextMeshProUGUI>();
     }
 
     private void OnEnable()
@@ -48,16 +46,20 @@ public class HeightUI2D : MonoBehaviour
         if (meter != null)
         {
             meter.OnHeightChanged -= UpdateCurrentText;
+            meter.OnMaxHeightUpdated -= UpdateMaxText;
         }
     }
 
     private void UpdateCurrentText(float height)
     {
-        if(!currentHeightText)
-            return;
-
         float heightCm = height * cmPerUnit;
-        currentHeightText.text = $"{currentPrefix}{heightCm.ToString($"F{decimalPlaces}")}{suffix}";
+        string s = $"{currentPrefix}{heightCm.ToString($"F{decimalPlaces}")}{suffix}";
+
+        foreach (var t in currentHeightTexts)
+        {
+            if (t)
+                t.text = s;
+        }
     }
 
     private void UpdateMaxText(float height)
