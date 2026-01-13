@@ -8,6 +8,9 @@ public class TowerPieceSpawner : MonoBehaviour
     [Header("生成物の親")]
     [SerializeField] private Transform spawnParent;
 
+    [Header("ピース数のカウント用コンポーネント")]
+    [SerializeField] private PieceCounter pieceCounter;
+
     [Header("生成位置の基準座標")]
     [SerializeField] private Vector3 spawnPosition = Vector3.zero;
 
@@ -106,6 +109,11 @@ public class TowerPieceSpawner : MonoBehaviour
         {
             rb.isKinematic = true;
             spawnedPiece.name = previewChangeName + spawnedPiece.name;
+        }
+
+        if(pieceCounter)
+        {
+            drop.OnPieceStopped += pieceCounter.PieceStopped;
         }
 
         //  ピースを返す
