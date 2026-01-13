@@ -19,12 +19,17 @@ public class DroppablePiece : MonoBehaviour
     [SerializeField] private float stopAngularVelocityThreshold = 5f;  //  この角速度以下なら停止とみなす
     [SerializeField] private float stopDuration = 0.5f;  //  この時間以上停止状態が続いたら完全停止とみなす
 
+    //  カウント済みかどうかのフラグ
+    public bool HasCounted 
+    { 
+        get;
+        private set; 
+    } 
+
     //  このピースが完全に停止した時のイベント
     public event System.Action OnPieceStopped;
 
     private Rigidbody2D rb;
-
-    private bool stopEventFired = false;
 
     void Awake()
     {
@@ -104,12 +109,10 @@ public class DroppablePiece : MonoBehaviour
             yield return wait;
         }
 
+        if(HasCounted)
+            yield break;
 
-        if(!stopEventFired)
-        {
-            stopEventFired = true;
-            //  停止イベントを発行
-            OnPieceStopped?.Invoke();
-        }
+        HasCounted = true;
+        OnPieceStopped?.Invoke();
     }
 }
