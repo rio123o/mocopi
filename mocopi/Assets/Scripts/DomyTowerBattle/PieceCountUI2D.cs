@@ -15,9 +15,7 @@ public class PieceCountUI2D : MonoBehaviour
     [SerializeField] private TextMeshProUGUI maxCountText;
 
     [Header("表示フォーマットの設定")]
-    [SerializeField] private string currentPrefix = "Pieces : ";
     [SerializeField] private string maxPrefix = "Max : ";
-    [SerializeField] private string suffix = " pcs";
 
     private void Awake()
     {
@@ -49,7 +47,7 @@ public class PieceCountUI2D : MonoBehaviour
 
     private void UpdateCurrentText(int count)
     {
-        string s = $"{currentPrefix}{count}{suffix}";
+        string s = $"{count}";
         foreach (var t in currentCountTexts)
         {
             if (t)
@@ -59,7 +57,7 @@ public class PieceCountUI2D : MonoBehaviour
 
     private void UpdateMaxText(int maxCount)
     {
-        string s = $"{maxPrefix}{maxCount}{suffix}";
+        string s = $"{maxPrefix}{maxCount}";
         if (maxCountText)
             maxCountText.text = s;
     }
