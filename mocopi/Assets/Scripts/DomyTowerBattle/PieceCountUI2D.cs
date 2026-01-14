@@ -14,8 +14,6 @@ public class PieceCountUI2D : MonoBehaviour
     [Header("シーケンス中の最大ピース数の表示テキスト")]
     [SerializeField] private TextMeshProUGUI maxCountText;
 
-    [Header("表示フォーマットの設定")]
-    [SerializeField] private string maxPrefix = "Max : ";
 
     private void Awake()
     {
@@ -57,7 +55,7 @@ public class PieceCountUI2D : MonoBehaviour
 
     private void UpdateMaxText(int maxCount)
     {
-        string s = $"{maxPrefix}{maxCount}";
+        string s = $"{maxCount}";
         if (maxCountText)
             maxCountText.text = s;
     }
