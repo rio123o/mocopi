@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: texcha
-    second: {fileID: 2100000, guid: 9f2ee8a17f25b5140b6b2537e61b52e8, type: 2}
+    second: {fileID: 2100000, guid: 71e5e0e227d27e44593bb213e3654501, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
