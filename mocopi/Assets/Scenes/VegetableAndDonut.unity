@@ -1185,7 +1185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 402.62, y: -20}
+  m_AnchoredPosition: {x: 462, y: -20}
   m_SizeDelta: {x: 229.8793, y: 165.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &77343573
@@ -1749,7 +1749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160.83597, y: 6.336}
+  m_AnchoredPosition: {x: 220.21594, y: 6.336}
   m_SizeDelta: {x: 253.695, y: 253.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152388156
@@ -3500,14 +3500,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.83137256}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 06fcee46300a62b44924bec2ab0e9aed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7890,7 +7890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407.76804, y: 6.336}
+  m_AnchoredPosition: {x: -348.38803, y: 6.336}
   m_SizeDelta: {x: 301.14, y: 173.665}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948723973
@@ -11607,7 +11607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.77044, y: -29.291}
+  m_AnchoredPosition: {x: -63.390446, y: -29.291}
   m_SizeDelta: {x: 242.4605, y: 183.891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377462857
@@ -13707,7 +13707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1564893781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17271,7 +17271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1966637586
 MonoBehaviour:
   m_ObjectHideFlags: 0
