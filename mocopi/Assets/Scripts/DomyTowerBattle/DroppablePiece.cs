@@ -19,6 +19,11 @@ public class DroppablePiece : MonoBehaviour
     [SerializeField] private float stopAngularVelocityThreshold = 5f;  //  この角速度以下なら停止とみなす
     [SerializeField] private float stopDuration = 0.5f;  //  この時間以上停止状態が続いたら完全停止とみなす
 
+    [Header("落下開始時の効果音")]
+    [SerializeField] private AudioClip dropSound;
+
+    [SerializeField] private AudioSource audioSource;
+
     //  カウント済みかどうかのフラグ
     public bool HasCounted 
     { 
@@ -45,11 +50,22 @@ public class DroppablePiece : MonoBehaviour
         }
     }
 
+    public void SetupAudio(AudioSource source, AudioClip clip)
+    {
+        audioSource = source;
+        dropSound = clip;
+    }
+
     public void Drop()
     {
         if(hasDropped) return;
         hasDropped = true;
         rb.isKinematic = false;  //  kinematicを解除すると、spawn時に設定済みのgravityScaleに変わる
+
+        if(dropSound && audioSource)
+        {
+            audioSource.PlayOneShot(dropSound);
+        }
 
         //  停止監視コルーチンを開始する
         StartCoroutine(WatchStop());

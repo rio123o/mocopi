@@ -46,6 +46,9 @@ public class TowerPieceSpawner : MonoBehaviour
     [Header("高さ計測用HeightMeter2Dの参照")]
     [SerializeField] private HeightMeter2D heightMeter;
 
+    [Header("落下時の効果音")]
+    [SerializeField] private AudioClip audioClip;
+
     public Transform SpawnParent => spawnParent;
     public Vector3 SpawnPosition => spawnPosition;
     public float SpawnHeight => spawnHeight;
@@ -97,6 +100,12 @@ public class TowerPieceSpawner : MonoBehaviour
 
         //  プレビュー時の操作
         var drop = spawnedPiece.AddComponent<DroppablePiece>();
+        //  落下時の効果音設定
+        var src = spawnedPiece.AddComponent<AudioSource>();
+        src.playOnAwake = false;
+        src.spatialBlend = 0f;
+
+        drop.SetupAudio(src, audioClip);
 
         //  高さ計測用のイベント登録
         if (heightMeter)
