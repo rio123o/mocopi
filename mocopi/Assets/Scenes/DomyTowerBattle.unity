@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5214b4a7722fb5b4aa63ce390dbde04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceCounter: {fileID: 0}
+  pieceCounter: {fileID: 954018649}
 --- !u!1 &1696963558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3648,7 @@ MonoBehaviour:
   collisionMode: 1
   interpolation: 1
   heightMeter: {fileID: 322599473}
+  audioClip: {fileID: 8300000, guid: 71d94e320b1f0774c901f41442faba98, type: 3}
 --- !u!4 &1861772777
 Transform:
   m_ObjectHideFlags: 0
