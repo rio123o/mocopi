@@ -3516,8 +3516,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283321599
-  m_fontColor: {r: 1, g: 0.29622638, b: 0.30407807, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3648,7 +3648,7 @@ MonoBehaviour:
   collisionMode: 1
   interpolation: 1
   heightMeter: {fileID: 322599473}
-  audioClip: {fileID: 8300000, guid: 71d94e320b1f0774c901f41442faba98, type: 3}
+  audioClip: {fileID: 8300000, guid: 98950de9afcbca14eb1750cfc255a50b, type: 3}
 --- !u!4 &1861772777
 Transform:
   m_ObjectHideFlags: 0
@@ -4539,8 +4539,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283255806
-  m_fontColor: {r: 0.9960785, g: 0.29411766, b: 0.3019608, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
