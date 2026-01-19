@@ -48,6 +48,8 @@ public class TowerPieceSpawner : MonoBehaviour
 
     [Header("—‰º‚ÌŒø‰Ê‰¹")]
     [SerializeField] private AudioClip audioClip;
+    [Header("‰¹—Ê‚Ìİ’è")]
+    [SerializeField, Range(0f, 1f)] private float audioVolume = 1f;
 
     public Transform SpawnParent => spawnParent;
     public Vector3 SpawnPosition => spawnPosition;
@@ -103,6 +105,7 @@ public class TowerPieceSpawner : MonoBehaviour
         //  —‰º‚ÌŒø‰Ê‰¹İ’è
         var src = spawnedPiece.AddComponent<AudioSource>();
         src.playOnAwake = false;
+        src.volume = audioVolume;
         src.spatialBlend = 0f;
 
         drop.SetupAudio(src, audioClip);
