@@ -30,7 +30,6 @@ public class PullOutDonutOrVegetable : MonoBehaviour
 
     [Header("かごに入らない場合の消滅設定")]
     [SerializeField] private float lifeTime = 5f;
-    [SerializeField] private AudioClip disappearClip;
 
     private IHandHolder currentHandHolder;
 
@@ -140,6 +139,5 @@ public class PullOutDonutOrVegetable : MonoBehaviour
         //  自動消滅のコンポーネントを追加して、設定を渡す
         var disapperThrew = thrown.AddComponent<DisappearThrewAfter>();
         disapperThrew.lifeTime = lifeTime;
-        disapperThrew.disappearClip = disappearClip;
     }
 }
