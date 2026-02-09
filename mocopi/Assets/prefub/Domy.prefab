@@ -5082,9 +5082,9 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.55413663, y: 2.5524993, z: -1.8070278}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.13324338, y: -0.22016716, z: 0.41780126}
+  - {x: -0.13324331, y: -0.2201674, z: 0.41780138}
   m_RotationOffsets:
-  - {x: 0, y: 76.14278, z: -90.194916}
+  - {x: 0, y: 76.14277, z: -90.194916}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -7925,7 +7925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 104
-  particleSystem: {fileID: 6613324069804161386}
+  pSystem: {fileID: 0}
 --- !u!114 &7227847260871516534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8010,7 +8010,7 @@ MonoBehaviour:
     weight: 0
     duttonTriggered: 0
   - shapeName: blendShape2.polySurface8Shape
-    key: 102
+    key: 109
     index: 0
     weight: 0
     duttonTriggered: 0
