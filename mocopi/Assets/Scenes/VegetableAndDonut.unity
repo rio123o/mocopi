@@ -9031,7 +9031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1149175106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10705,7 +10705,6 @@ MonoBehaviour:
   throwClip: {fileID: 0}
   audioSource: {fileID: 0}
   lifeTime: 5
-  disappearClip: {fileID: 0}
 --- !u!4 &1345301379
 Transform:
   m_ObjectHideFlags: 0
@@ -11457,7 +11456,6 @@ MonoBehaviour:
   throwClip: {fileID: 8300000, guid: 71d94e320b1f0774c901f41442faba98, type: 3}
   audioSource: {fileID: 1376133335}
   lifeTime: 5
-  disappearClip: {fileID: 8300000, guid: 98950de9afcbca14eb1750cfc255a50b, type: 3}
 --- !u!4 &1376133334
 Transform:
   m_ObjectHideFlags: 0
@@ -11831,7 +11829,6 @@ MonoBehaviour:
   throwClip: {fileID: 8300000, guid: 71d94e320b1f0774c901f41442faba98, type: 3}
   audioSource: {fileID: 1385338027}
   lifeTime: 5
-  disappearClip: {fileID: 8300000, guid: 98950de9afcbca14eb1750cfc255a50b, type: 3}
 --- !u!4 &1385338029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7227847259377687081, guid: 162f007a19f75524892e4118adc83b93, type: 3}
