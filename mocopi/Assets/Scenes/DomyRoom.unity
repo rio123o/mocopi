@@ -1406,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1675114826
@@ -1938,6 +1938,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2ce5907a8095c41b4943c98099550b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useM5Input: 0
+  portName: COM3
+  baudRate: 115200
+  m5Token: BTN:DOWN
+  m5SceneName: DomyRoom
   mappings:
   - actionReference: {fileID: -2511303351014887420, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: Wait
