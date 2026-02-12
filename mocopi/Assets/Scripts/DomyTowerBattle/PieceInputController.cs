@@ -15,6 +15,11 @@ public class PieceInputController : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;      //  押し具合に応じた移動速度
     [SerializeField] private float smoothTime = 0.06f;
 
+    [Header("左右移動の制限")]
+    [SerializeField] private bool useLimitX = true;
+    [SerializeField] private float minX = -5f;
+    [SerializeField] private float maxX = 5f;
+
     private bool canDrop = true;  //  連射対策のフラグ
 
     // 今、操作しているピースがあるか
@@ -85,6 +90,12 @@ public class PieceInputController : MonoBehaviour
         if (isHoldingMove && Mathf.Abs(moveAxisX) > inputDeadzone)
         {
             targetPosition += Vector3.right * (moveAxisX * moveSpeed * Time.deltaTime);
+        }
+
+        //  X軸の移動制限
+        if (useLimitX)
+        {
+            targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
         }
 
         //  現在位置をターゲットへ追従させる
