@@ -1078,7 +1078,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4061,6 +4061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2ce5907a8095c41b4943c98099550b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useM5Input: 1
+  portName: COM3
+  baudRate: 115200
+  m5Token: BTN:DOWN
+  m5SceneName: DomyRoom
   mappings:
   - actionReference: {fileID: -2511303351014887420, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: Wait
