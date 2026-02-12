@@ -2812,6 +2812,9 @@ MonoBehaviour:
   inputDeadzone: 0.15
   moveSpeed: 8
   smoothTime: 0.06
+  useLimitX: 1
+  minX: -3
+  maxX: 3.5
 --- !u!4 &1327381077
 Transform:
   m_ObjectHideFlags: 0
