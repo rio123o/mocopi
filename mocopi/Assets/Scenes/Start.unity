@@ -640,6 +640,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2ce5907a8095c41b4943c98099550b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useM5Input: 1
+  portName: COM9
+  baudRate: 115200
+  m5Token: BTN:DOWN
+  m5SceneName: DomyRoom
   mappings:
   - actionReference: {fileID: -7529576752002962177, guid: bd8a78247feaba74ba88b74191b17b22, type: 3}
     sceneName: DomyRoom
