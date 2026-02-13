@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useM5Input: 1
-  portName: COM9
+  portName: COM3
   baudRate: 115200
   m5Token: BTN:DOWN
   m5SceneName: DomyRoom
